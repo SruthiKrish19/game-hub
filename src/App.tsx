@@ -41,7 +41,7 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <div className="app">
-          <Header title="Game Hub">
+          <Header title="Gamers Alley">
             {/* <ThemeToggle /> */}
           </Header>
           <div className="app-content">

@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ 
-  title = 'Game Hub', 
+  title = 'Gamers Alley', 
   showBackButton = false,
   customAction,
   children
