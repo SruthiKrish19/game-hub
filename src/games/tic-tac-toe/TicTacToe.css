@@ -1,0 +1,219 @@
+/* TicTacToe Game Styles */
+
+/* Game container */
+.game {
+  width: 92vw;
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--game-bg);
+  backdrop-filter: blur(4px);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: all var(--transition-speed) ease;
+}
+
+/* Game info bar */
+.game-info {
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: color var(--transition-speed) ease;
+}
+
+/* Status display */
+.tic-tac-toe-status {
+  flex: 0 0 140px;
+  text-align: center;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  font-size: 2cap;
+}
+
+/* Reset button */
+.back-btn {
+  margin-right: 1rem;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+}
+
+/* Game board */
+.game-board {
+  margin-inline: auto;
+  width: 100%;
+  max-width: min(80vw, 360px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Game squares */
+.square {
+  width: 100%;
+  height: min(25vw, 100px);
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-accent);
+  cursor: pointer;
+  transition: transform 0.15s ease, background var(--transition-speed), color var(--transition-speed);
+}
+
+.square:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.square:active {
+  transform: scale(0.95);
+}
+
+.square.filled-x { 
+  color: var(--ttt-x-color); 
+}
+
+.square.filled-o { 
+  color: var(--ttt-o-color); 
+}
+
+
+/* Draw squares */
+.square.draw-square {
+  animation: drawSquarePulse 2s infinite;
+  border-color: var(--win-highlight);
+}
+
+@keyframes drawSquarePulse {
+  0% { background-color: rgba(255, 235, 59, 0.1); }
+  50% { background-color: rgba(255, 235, 59, 0.3); }
+  100% { background-color: rgba(255, 235, 59, 0.1); }
+}
+
+/* Winning squares */
+.square.winning {
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 15px var(--shadow-color);
+  border-color: var(--win-highlight);
+  background-color: rgba(255, 235, 59, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Mobile Responsiveness */
+/* Small phones */
+@media (max-width: 480px) {
+  /* Game container */
+  .game {
+    width: 92vw;
+    max-width: 92vw;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  
+  /* Game board */
+  .game-board {
+    width: 100%;
+    max-width: 100%;
+    gap: 8px;
+    margin: 0 auto;
+  }
+  
+  /* Game squares */
+  .square {
+    height: min(28vw, 90px);
+    font-size: clamp(1.25rem, 8vw, 1.8rem);
+  }
+  
+  /* Game info bar */
+  .game-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Status text */
+  .tic-tac-toe-status {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Reset button */
+  .back-btn {
+    margin-right: 0;
+    margin: 0 auto;
+  }
+}
+
+/* Medium phones and small tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .game {
+    width: 85vw;
+    max-width: 500px;
+    padding: 1.25rem;
+  }
+  
+  .square {
+    height: min(22vw, 110px);
+  }
+}
+
+/* Tablets and small laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .game {
+    max-width: 450px;
+    padding: 1.5rem;
+  }
+  
+  .square {
+    height: min(18vw, 120px);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .game {
+    max-width: 500px;
+  }
+  
+  .square {
+    height: 110px;
+  }
+}
