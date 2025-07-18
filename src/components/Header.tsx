@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="header-content">
         {isHomePage && (
           <div className="header-decoration">
-            <span className="header-icon">🎮</span>
+            <img src="/gamers-alley.png" height={42} width={42} />
           </div>
         )}
         {showBackButton && (
